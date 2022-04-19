@@ -110,19 +110,23 @@ h1{
     line-height: 52px;
 }
 
-#dataString{
+.dataString{
 
 
-    width: 4500px;
+    width: 4300px;
     height: 55px;
     margin-left: 100px;
 }
 
-#data{
-    width: 4500px;
+#dataArr{
+
     height: 600px;
-    margin-left: 100px;
+    //margin-top: 300px;
+    margin-left: 290px;
 }
+
+
+
 
 
 #bigDay{
