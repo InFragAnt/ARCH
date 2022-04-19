@@ -68,7 +68,7 @@ h1{
      background: #FFFFFF;
      border-radius: 15px;
  }
-#semestr1{
+#numBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -79,7 +79,7 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
-#semestr12{
+#dateBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -90,6 +90,41 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
+
+#dataBlock{
+
+
+    width: 217px;
+    height: 55px;
+    top: 374px;
+    margin-left: 6px;
+    margin-top: 30px;
+
+    background: #FFFFFF;
+    border-radius: 15px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 52px;
+}
+
+#dataString{
+
+
+    width: 4500px;
+    height: 55px;
+    margin-left: 100px;
+}
+
+#data{
+    width: 4500px;
+    height: 600px;
+    margin-left: 100px;
+}
+
+
 #bigDay{
     width: 267px;
     height: 187px;
@@ -259,6 +294,9 @@ th {
 
 }
 .overlay{
-    position: fixed;
-    top: 212px;
+
+    position: absolute;
+    top: 0px;
+    left:0px;
 }
+
