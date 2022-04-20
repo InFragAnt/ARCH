@@ -64,11 +64,12 @@ h1{
      top: 204px;
      margin-top: 30px;
      margin-left: 24px;
+    margin-bottom: 21px;
 
      background: #FFFFFF;
      border-radius: 15px;
  }
-#numBlock{
+.numBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -79,7 +80,7 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
-#dateBlock{
+.dateBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -125,23 +126,26 @@ h1{
     margin-left: 290px;
 }
 
+.data{
+    height: 55px;
+    font-size: 22px;
+}
 
 
 
-
-#bigDay{
+.bigDay{
     width: 267px;
     height: 187px;
     left: 61px;
     top: 376px;
 
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 9px;
 
     background: #FFFFFF;
     border-radius: 15px;
 }
-#day{
+.day{
     width: 267px;
     height: 55px;
     left: 61px;
@@ -219,7 +223,7 @@ p18{
 p19{
     position: absolute;
 
-    margin-left: 23px;
+    margin-left: 10px;
     margin-top: 7px;
 
     font-family: 'Roboto', serif;
@@ -255,7 +259,7 @@ p20{
 
     color: #000000;
 }
-pBigDays{
+#bigDayText{
     width: 230px;
     height: 39px;
     left: 86px;
@@ -269,7 +273,7 @@ pBigDays{
 
     color: #000000;
 }
-pDays{
+#dayText{
     width: 178px;
     height: 39px;
     left: 86px;
@@ -304,3 +308,71 @@ th {
     left:0px;
 }
 
+<<<<<<< Updated upstream
+=======
+.iconM{
+    width:37px;
+    height:37px;
+    position: absolute;
+    left: 1px;
+    margin-top: 24%;
+    background-image:url(../Icons/minus.svg);
+}
+.iconP{
+    width:37px;
+    height:37px;
+    position: absolute;
+    left: 1px;
+    margin-top: 3%;
+    background-image:url(../Icons/plus.svg);
+}
+
+.exit{
+    position: absolute;
+    width:24px;
+    height:24px;
+    top: 26px;
+    left: 598px;
+
+    background: url(../Icons/close.svg);
+}
+
+.overlayInput{
+    position: absolute;
+    width: 652px;
+    height: 367px;
+    display: none;
+
+
+
+    background: #FFFFFF;
+    border-radius: 35px;
+}
+p3{
+    width: 172px;
+    height: 53px;
+    left: 84px;
+    top: 496px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 18px;
+    /* or 36% */
+
+    display: flex;
+    text-align: right;
+    color: #000000;
+    align-items: center;
+}
+
+.inputField{
+    border: 0px;
+    height: 40px;
+    font-size: 45px;
+    width: 260px;
+    text-align: right;
+
+}
+>>>>>>> Stashed changes
