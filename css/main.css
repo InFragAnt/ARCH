@@ -64,11 +64,12 @@ h1{
      top: 204px;
      margin-top: 30px;
      margin-left: 24px;
+    margin-bottom: 21px;
 
      background: #FFFFFF;
      border-radius: 15px;
  }
-#numBlock{
+.numBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -79,7 +80,7 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
-#dateBlock{
+.dateBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -125,23 +126,25 @@ h1{
     margin-left: 290px;
 }
 
+.data{
+    height: 55px;
+}
 
 
 
-
-#bigDay{
+.bigDay{
     width: 267px;
     height: 187px;
     left: 61px;
     top: 376px;
 
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 9px;
 
     background: #FFFFFF;
     border-radius: 15px;
 }
-#day{
+.day{
     width: 267px;
     height: 55px;
     left: 61px;
@@ -255,7 +258,7 @@ p20{
 
     color: #000000;
 }
-pBigDays{
+#bigDayText{
     width: 230px;
     height: 39px;
     left: 86px;
@@ -269,7 +272,7 @@ pBigDays{
 
     color: #000000;
 }
-pDays{
+#dayText{
     width: 178px;
     height: 39px;
     left: 86px;
@@ -319,12 +322,13 @@ th {
     margin-top: 3%;
     background-image:url(../Icons/plus.svg);
 }
-.overOOOOOOOVVEEEEEERRRRRlay{
+.overlayInput{
     position: absolute;
     width: 652px;
     height: 367px;
-    left: 500px;
-    top: 446px;
+    display: none;
+
+
 
     background: #FFFFFF;
     border-radius: 35px;
