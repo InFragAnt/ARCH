@@ -68,7 +68,7 @@ h1{
      background: #FFFFFF;
      border-radius: 15px;
  }
-#semestr1{
+#numBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -79,7 +79,7 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
-#semestr12{
+#dateBlock{
 //position: absolute;
     width: 217px;
     height: 55px;
@@ -90,6 +90,45 @@ h1{
     background: #FFFFFF;
     border-radius: 15px;
 }
+
+#dataBlock{
+
+
+    width: 217px;
+    height: 55px;
+    top: 374px;
+    margin-left: 6px;
+    margin-top: 30px;
+
+    background: #FFFFFF;
+    border-radius: 15px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 52px;
+}
+
+.dataString{
+
+
+    width: 4300px;
+    height: 55px;
+    margin-left: 100px;
+}
+
+#dataArr{
+
+    height: 600px;
+    //margin-top: 300px;
+    margin-left: 290px;
+}
+
+
+
+
+
 #bigDay{
     width: 267px;
     height: 187px;
@@ -253,12 +292,60 @@ th {
     display: table-cell;
     vertical-align: inherit;
     font-weight: bold;
-    text-align: -internal-center;
+    text-align: center;
     padding-left: 0px;
     padding-right: 0px;
 
 }
 .overlay{
-    position: fixed;
-    top: 212px;
+    position: absolute;
+    top: 0px;
+    left:0px;
 }
+
+.iconM{
+    width:37px;
+    height:37px;
+    position: absolute;
+    left: 1px;
+    margin-top: 24%;
+    background-image:url(../Icons/minus.svg);
+}
+.iconP{
+    width:37px;
+    height:37px;
+    position: absolute;
+    left: 1px;
+    margin-top: 3%;
+    background-image:url(../Icons/plus.svg);
+}
+.overOOOOOOOVVEEEEEERRRRRlay{
+    position: absolute;
+    width: 652px;
+    height: 367px;
+    left: 500px;
+    top: 446px;
+
+    background: #FFFFFF;
+    border-radius: 35px;
+}
+p3{
+    width: 172px;
+    height: 53px;
+    left: 84px;
+    top: 496px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 18px;
+    /* or 36% */
+
+    display: flex;
+    text-align: right;
+    color: #000000;
+    align-items: center;
+}
+
+
