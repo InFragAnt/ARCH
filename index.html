@@ -7,6 +7,9 @@
     <title>Расписание</title>
     <link rel="stylesheet" href="css/main.css"/>
 
+    <script src="node_modules/@claviska/jquery-minicolors/jquery.minicolors.js"></script>
+    <link rel="stylesheet" href="node_modules/@claviska/jquery-minicolors/jquery.minicolors.css" />
+    <!--<input class="mini" type="minicolors" data-swatch-position="left" value="#75bd25" data-textfield="false" name="color" /> -->
 </head>
 <body>
     <div id="back">
@@ -369,8 +372,58 @@
                     </td>
                 </tr>
             </table>
+
             <hr class="polosaZhizni" style="width: 597px; height: 0px; border: 2px solid #B9B9B9; margin-top: 36px">
+
+
+            <div id="rings">
+                <table>
+                    <tr>
+                        <td>
+                            <div style=" padding-top: 6px;width: 339px; height: 31px; ">
+                                <p45>
+                                    Изменить цвет ячейки:
+                                </p45>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball1">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball2">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball3">
+
+                            </div>
+                        </td>
+                        <td>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#dude').minicolors();
+                                });
+                            </script>
+
+                            <div id="ball4">
+                                <label  class="ebannayaXyinyaEbalEe">
+                                    <input id="dude"/>
+
+                                </label>
+                            </div>
+
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
         </div>
+
+
     </div>
 
 </body>

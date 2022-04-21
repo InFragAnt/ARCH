@@ -2,6 +2,8 @@ body{
 
 
 }
+
+
 h1{
     position: absolute;
     width: 532px;
@@ -372,3 +374,77 @@ p3{
     text-align: right;
 
 }
+#rings{
+    width: 552px;
+    height: 43px;
+    margin-left: 46px;
+    margin-top: 15px;
+}
+p45{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    /* or 100% */
+
+    display: flex;
+    align-items: center;
+}
+#ball1{
+    width: 43px;
+    height: 43px;
+
+    background: #FF6464;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border-radius: 50%;
+
+}
+#ball2{
+    width: 43px;
+    height: 43px;
+    margin-left: 8px;
+    background: #72FF80;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border-radius: 50%;
+
+}
+#ball3{
+    width: 43px;
+    height: 43px;
+    margin-left: 8px;
+    background: #9361FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border-radius: 50%;
+
+}
+#ball4{
+    width: 43px;
+    height: 43px;
+    margin-left: 8px;
+    background: linear-gradient(139.47deg, #FF0000 14.22%, #FF7A00 29.82%, #FCFF6A 43.85%, #00FF19 54.77%, #01FFFF 64.13%, #4575FF 76.61%, #8000FF 88.7%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border-radius: 50%;
+
+}
+#dude{
+    opacity: 0%;
+    width: 43px;
+    height: 43px;;
+}
+.ebannayaXyinyaEbalEe{
+
+
+}
+/*
+.ebannayaXyinyaEbalEe{
+    position: absolute;
+        top: 500px;
+        left: 500px;
+}
+
+ */
