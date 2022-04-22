@@ -30,7 +30,6 @@ function genFields(){
         data.appendChild(trData);
     }
 }
-
 function inputClick(tag){
     activeBlock = tag.parentNode.parentElement.id + "|" + tag.id;
     let coords = tag.parentNode.getBoundingClientRect();

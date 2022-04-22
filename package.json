@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@claviska/jquery-minicolors": "^2.3.6"
+    "vanilla-picker": "^2.12.1"
   }
 }
