@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <script src="js.js" defer></script>
     <script src="http://yandex.st/jquery/1.8.1/jquery.min.js"></script>
+    <script src="aaaaaaa.js" defer></script>
     <title>Расписание</title>
     <link rel="stylesheet" href="css/main.css"/>
 
+    <script src="node_modules/@claviska/jquery-minicolors/jquery.minicolors.js"></script>
+    <link rel="stylesheet" href="node_modules/@claviska/jquery-minicolors/jquery.minicolors.css" />
+    <!--<input class="mini" type="minicolors" data-swatch-position="left" value="#75bd25" data-textfield="false" name="color" /> -->
 </head>
 <body>
     <div id="back">
@@ -33,12 +37,12 @@
 
                             <tr>
                                 <th>
-                                    <div class="bigDay" id="WeekDay1">
-                                        <a class="iconM" onclick="button(this)" ></a>
+                                    <div class="day" id="WeekDay1" center>
+                                        <a class="iconP" onclick="button(this)" ></a>
 
                                         <!-- onclick="this.className = (this.className == 'iconP' ? 'iconM' : 'iconP')"-->
                                             <!-- style="margin-left: -56px;margin-top: 28%;margin-bottom: -3%;" -->
-                                        <dayText id="bigDayText" >
+                                        <dayText id="dayText" >
                                             Понедельник
                                         </dayText>
                                     </div>
@@ -117,7 +121,7 @@
                         </table>
                     </td>
                     <td>
-                        <table style="margin-bottom: 20px">
+                        <table style="margin-bottom: 32px">
                             <tr>
 
                                 <th>
@@ -307,7 +311,7 @@
 
                         </table>
 
-                        <table id="dataArr" style="border-spacing: 6px 9px">
+                        <table id="dataArr" style="border-spacing: 6px 0px;">
 
                         </table>
 
@@ -321,8 +325,9 @@
 
 
         </div>
-        <div class="overlayInput">
+        <div id="overlayInput">
             <table>
+                <a class="exit" onclick="save()" ></a>
                 <tr>
                     <td>
                         <div style="width: 172px; height: 53px; margin-left: 44px; margin-top: 48px">
@@ -332,9 +337,9 @@
                     </td>
                     <td>
 
-                        <div style="width: 172px; height: 53px; margin-left: 152px; margin-top: 48px">
-                            <p3>19-ИТД</p3>
-                            <hr class="polosaZhizni" style="width: 259px;margin-left: -82px; height: 0px; border: 2px solid #B9B9B9;">
+                        <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 59px">
+                            <input id="group" class="inputField" type="text" size="33" placeholder="19-ИТД">
+                            <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
                         </div>
 
                     </td>
@@ -348,9 +353,9 @@
                         </div>
                     </td>
                     <td>
-                        <div style="width: 172px; height: 53px; margin-left: 217px; margin-top: 5px">
-                            <p3>АИС</p3>
-                            <hr class="polosaZhizni" style="width: 259px;margin-left: -147px; height: 0px; border: 2px solid #B9B9B9;">
+                        <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 5px">
+                            <input id="subject" class="inputField" type="text" size="33" placeholder="АИС" >
+                            <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
                         </div>
                     </td>
                 </tr>
@@ -361,15 +366,60 @@
                         </div>
                     </td>
                     <td>
-                        <div style="width: 172px; height: 53px; margin-left: 226px; margin-top: 5px;">
-                            <p3>8:00</p3>
-                            <hr class="polosaZhizni" style="width: 259px;margin-left: -158px; height: 0px; border: 2px solid #B9B9B9;">
+                        <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 5px;">
+                            <input id="time" class="inputField" type="text" size="33" placeholder="8:00">
+                            <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
                         </div>
                     </td>
                 </tr>
             </table>
+
             <hr class="polosaZhizni" style="width: 597px; height: 0px; border: 2px solid #B9B9B9; margin-top: 36px">
+
+
+            <div id="rings">
+                <table>
+                    <tr>
+                        <td>
+                            <div style=" padding-top: 6px;width: 339px; height: 31px; ">
+                                <p45>
+                                    Изменить цвет ячейки:
+                                </p45>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball1" onclick="changeColor(this)">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball2" onclick="changeColor(this)">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball3"onclick="changeColor(this)">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div id="ball4">
+                                <label  class="ebannayaXyinyaEbalEe">
+                                    <script src="node_modules/vanilla-picker/dist/vanilla-picker.js"></script>
+                                    <div id="example" style="width: 43px;height: 43px;border-radius: 50%;"></div>
+
+                                </label>
+                            </div>
+
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
         </div>
+
+
     </div>
 
 </body>
