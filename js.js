@@ -1,57 +1,103 @@
 let data = document.getElementById("dataArr");
-let day;
 let activeBlock;
 let actualColor;
 let group = document.getElementById("group");
 let subject = document.getElementById("subject");
 let time = document.getElementById("time");
 let inputWindow = document.getElementById("overlayInput");
+let paramsString = window.location.href.split(".")[0].slice(-1);
 
-if(localStorage.getItem("string") == null){
-   localStorage.setItem("string", "1:1|1:2|1:3|2:1|3:1|4:1|5:1|6:1|7:1|7:2|7:3|7:4|");
+if(localStorage.getItem("string"+paramsString) == null){
+   localStorage.setItem("string"+paramsString, "1:1|2:1|3:1|4:1|5:1|6:1|7:1|");
 }
 
-function isEmpty(){ //ЭТО ПОСЛЕ ЛОКАЛСТОРИДЖ СОХРАННИЯ ЗАПИСИ
-    let arrStr = localStorage.getItem("string").split("|");
+document.addEventListener("keypress",function(event){
+    if (event.code == 'KeyI' && event.ctrlKey) {
+        if (confirm('Выполнить "Вставить"?')) {
+            if(localStorage.getItem("BuffStr") != null || localStorage.getItem("BuffData") != null || localStorage.getItem("BuffDataKeys") != null){
+                localStorage.setItem("string"+paramsString, localStorage.getItem("BuffStr"))
+                let arrData = localStorage.getItem("BuffData").split("*");
+                let arrDataKeys = localStorage.getItem("BuffDataKeys").split(",");
+                for(let i = 0; i < arrData.length-1; i++){
+                    arrDataKeys[i] = paramsString + arrDataKeys[i].slice(1,arrDataKeys[i].length);
+                    localStorage.setItem(arrDataKeys[i], arrData[i])
+                    location.reload();
+                }
+            }else
+            {
+                alert("Буффер обмена пуст. Вы ничего не скопировали.")
+            }
+        }
+        localStorage.setItem("BuffStr", null);
+        localStorage.setItem("BuffData", null);
+        localStorage.setItem("BuffDataKeys", null);
+    }
+});
+
+function changeSemestr(){
+    if (paramsString == 1){
+        window.location.href = '2.html';
+    }else
+    {
+        window.location.href = '1.html';
+    }
+}
+
+function copy(){
+    //let localDataStr = localStorage.getItem("string"+paramsString)
+    localStorage.setItem("BuffStr", localStorage.getItem("string"+paramsString));
+    let strData = [];
+    let arrDataKeys = [];
+    for(let i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i).slice(0,1) == paramsString){
+            strData+=localStorage.getItem(localStorage.key(i))+"*";
+            arrDataKeys.push(localStorage.key(i));
+        }
+    }
+    localStorage.setItem("BuffData", strData);
+    localStorage.setItem("BuffDataKeys", arrDataKeys);
+    alert("Расписание скопировано. \nДля того, чтобы вставить расписание нажмите CTRL+I");
+}
+
+function isEmpty(){
+    let arrStr = localStorage.getItem("string"+paramsString).split("|");
     arrStr.length = arrStr.length - 1;
     let newArr = null;
     let newStr = "";
+    console.log(arrStr);
     arrStr.forEach(function(str){
-        let counter = 0 ;
+        let counter = 0;
+        //console.log("Строка " + str);
+        //console.log("Counter " + counter);
         for (let i = 0; i < 18; i++){
-            if(localStorage.getItem(str+"|"+i) == null)
+            if(localStorage.getItem(paramsString+ "S" + str + "|" +i) == null)
             {
+                //console.log(paramsString+ "S" + str + "|" +i);
                 counter++;
             }
         }
+        //console.log("Counter " + counter);
         if (counter == 18 && str.split(":")[1] != "1"){
+            //console.log("Строка "+ str + "Удалена")
             newArr = arrStr.filter(function(f) { return f !== str })
-            //console.log("1arrStr "+arrStr);
-            //console.log("1newArr "+newArr);
-            //arrStr.length = arrStr.length - 1;
             arrStr = newArr;
-            //console.log("2arrStr "+arrStr);
-            //console.log("2newArr "+newArr);
         }
-
     });
-    //console.log("закончил" + newArr);
-
     if (newArr != null){
         newArr.forEach(function(str){
             newStr += str+"|";
         });
-        localStorage.setItem("string", newStr);
+        localStorage.setItem("string"+paramsString, newStr);
     }
 }
 
 function genFields(){
-    isEmpty(); //ЭТО ПОСЛЕ ЛОКАЛСТОРИДЖ СОХРАННИЯ ЗАПИСИ
-    let arrStr = localStorage.getItem("string").split("|");
+    isEmpty();
+    let arrStr = localStorage.getItem("string"+paramsString).split("|");
     arrStr.length = arrStr.length - 1;
 
-    if(arrStr.length - 9 > 0){
-        backResize(arrStr.length - 9);
+    if(arrStr.length - 7 > 0){
+        backResize(arrStr.length - 7);
     }
 
     for( let i = 1; i <= 7; i++) {
@@ -60,7 +106,6 @@ function genFields(){
         dayStringBlock.setAttribute('id', i + ":");
         data.appendChild(dayStringBlock);
     }
-    //console.log(arrStr.length);
     arrStr.forEach(function(str){
         let strNum = str.split(":");
         addString(strNum[0], strNum[1]);
@@ -73,63 +118,48 @@ function genFields(){
 
 function dayWeekResize(i){
         let count = countString(i);
-        //console.log(count);
         let divDay = document.getElementById("WeekDay" + `${i}`);
         divDay.style.height = `${55 * count + 11 * (count-1)}`+"px";
         divDay.firstElementChild.style.marginTop = `${(parseInt(divDay.style.height) / 2) - 20}`+"px";
         divDay.lastElementChild.style.marginTop = `${(parseInt(divDay.style.height) / 2) - 20}`+"px";
 }
 
-function countString(dayNum){  //Кол-во строк дня
+function countString(dayNum){
     let counterString = 0;
-    let arrNumString = localStorage.getItem("string").split("|");
+    let arrNumString = localStorage.getItem("string"+paramsString).split("|");
     arrNumString.length = arrNumString.length - 1;
 
     arrNumString.forEach(function(str){
-        //console.log("сплит "+str.split(":")[0]);
-        // console.log("мое " +"D"+day);
 
         if(str.split(":")[0] == dayNum) {
             counterString++;
         }
     });
-    //console.log(counterString);
     return counterString;
 }
 
 function addString(day,string){
-    //localStorage.setItem('string', localStorage.getItem("string") + "D" + day + ":" + string + "|" );
 
     let dayStringBlock = document.getElementById(`${day}`+ ":");
     let trData = document.createElement("tr");
     trData.setAttribute('class', 'dataString');
-    //trData.setAttribute('id', "D" + day + ":" + string + "|");
     trData.setAttribute('id',  string + "|");
 
-    /*
-    if( i >= 4 && i % 3 != 1){
-        trData.style.display = "none";
-    }
-    */
     for(let j = 0 ; j < 18; j++){
         let divData= document.createElement("div");
         let data = "";
-        if (localStorage.getItem(day + ":" + string + "|" + `${j}`) != null){
-            data = localStorage.getItem(day + ":" + string + "|" + `${j}`).split("|");
+        if (localStorage.getItem(paramsString+"S"+  day + ":" + string + "|" + `${j}`) != null){
+            data = localStorage.getItem(paramsString+"S"+ day + ":" + string + "|" + `${j}`).split("|");
             divData.innerHTML = data[2] + " " + data[0];
         }
-
         divData.setAttribute('id', `${j}`);
         divData.setAttribute('class', 'data');
-        //ivData.onclick = function() {inputClick(this);};
-
         let thData = document.createElement("th");
         thData.setAttribute('id', 'dataBlock');
         thData.onclick = function() {inputClick(this);};
         thData.style.backgroundColor = data[3];
         thData.appendChild(divData);
         trData.appendChild(thData);
-
     }
     dayStringBlock.appendChild(trData);
 }
@@ -144,9 +174,8 @@ function backResize(i){
 }
 
 function inputClick(tag){
-    activeBlock = tag.parentNode.parentElement.id + tag.parentElement.id + tag.childNodes[0].id;
+    activeBlock = paramsString + "S" +tag.parentNode.parentElement.id + tag.parentElement.id + tag.childNodes[0].id;
     actualColor = "rgb(255, 255, 255)";
-    console.log(activeBlock);
     if (localStorage.getItem(activeBlock) != null){
         let dataValue = localStorage.getItem(activeBlock).split("|");
         group.value = dataValue[0];
@@ -160,13 +189,10 @@ function inputClick(tag){
 
     let coords = tag.getBoundingClientRect();
     inputWindow.style.display = "block";
-
     document.getElementById("ball1").style.backgroundColor = localStorage.getItem('ball1');
     document.getElementById("ball2").style.backgroundColor = localStorage.getItem('ball2');
     document.getElementById("ball3").style.backgroundColor = localStorage.getItem('ball3');
-
     if (coords.top < 500){
-
         inputWindow.style.top = `${coords.top + window.pageYOffset + 20}`+ "px";
     }else
     {
@@ -176,94 +202,62 @@ function inputClick(tag){
         inputWindow.style.left = `${coords.x + window.pageXOffset + 20}`+ "px";
     }else
     {
-        inputWindow.style.left = `${coords.x + window.pageXOffset - 450}`+ "px";
+        inputWindow.style.left = `${coords.x + window.pageXOffset - 500}`+ "px";
     }
 }
 
 function changeColor(tag){
-    let arrDay = activeBlock.split(":");
-    let arrString = arrDay[1].split("|");
-    let block = document.getElementById(arrDay[0]+":").childNodes[arrString[0]-1].childNodes[arrString[1]];
+    let arrTDay = activeBlock.split(":");
+    let arrString = arrTDay[1].split("|");
+    let block = document.getElementById(arrTDay[0].split("S")[1]+":").childNodes[arrString[0]-1].childNodes[arrString[1]];
     actualColor = window.getComputedStyle( tag ,null).getPropertyValue('background-color');
     block.style.backgroundColor = actualColor;
-
 }
 
 function save() {
-
     if (confirm('Сохранить запись?')) {
 
-        let arrDay = activeBlock.split(":");
-        let arrString = arrDay[1].split("|");
-        let th = document.getElementById(arrDay[0]+":").childNodes[arrString[0]-1].childNodes[arrString[1]];
-        if (group.value != "" || subject.value != "" || time.value != "") {
+        let arrTDay = activeBlock.split(":");
+        let arrString = arrTDay[1].split("|");
+        let th = document.getElementById(arrTDay[0].split("S")[1]+":").childNodes[arrString[0]-1].childNodes[arrString[1]];
+        if (group.value != "" || subject.value != "" || time.value != "" || actualColor != "") {
             localStorage.setItem(activeBlock, group.value + "|" + subject.value + "|" + time.value + "|" + actualColor);
         }else
         {
             localStorage.removeItem(activeBlock);
-            th.style.backgroundColor = "rgb(255, 255, 255)";
         }
-
-        //console.log(arrDay[0]+":");
-        //console.log(arrString[0]);
-        //console.log(arrString[1]);
-
-        //let arrIdBlock = activeBlock.split("|");
-        //console.log(document.getElementById(arrDay[0]+":").childNodes[arrString[0]-1].childNodes[arrString[1]].childNodes[0]);
-        //console.log(arrDayString[1]);
-        //console.log(arrId[0] +'и'+  arrId[1]);
         th.childNodes[0].innerHTML = time.value + " " + group.value;
-    } else {
-
     }
-
-
     inputWindow.style.display = "none";
-
-
 }
 
 
 
 function button(tag){
-    //let numIsBigNow = document.getElementsByClassName("bigDay").item(0).id.substr(7);
-    //let numNewBig = tag.parentNode.id.substr(7);
     let dayStringAdd =  tag.parentNode.id.substr(7);
-
-   //console.log(localStorage.getItem("string").indexOf("D"+`${parseInt(dayStringAdd)+1}`));
-    localStorage.setItem("string", localStorage.getItem("string") + `${dayStringAdd}` + ":" + `${countString(dayStringAdd)+1}` + "|");
+    localStorage.setItem("string"+paramsString, localStorage.getItem("string"+paramsString) + `${dayStringAdd}` + ":" + `${countString(dayStringAdd)+1}` + "|");
     addString(dayStringAdd, countString(dayStringAdd));
     backResize(1);
     dayWeekResize(parseInt(dayStringAdd));
-    /*
-    for(let i = 0; i < 2; i++){
-        document.getElementById("S"+`${numIsBigNow * 3 - i }`).style.display = "none";
-        document.getElementById("S"+`${numNewBig * 3 - i }`).style.display = "";
-    }
-
-
-    if(tag.parentNode.className != "bigDay"){
-        tag.className = (tag.className == 'iconP' ? 'iconM' : 'iconP');
-    }
-
-
-    for (let l = 1; l <= 7; l++){
-        if(tag.parentNode.id == "WeekDay" + `${l}`){
-            tag.parentNode.className = "bigDay";
-            tag.nextElementSibling.id = "bigDayText";
-            continue;
-        }
-        document.getElementById("WeekDay" + `${l}`).className = "day";
-        document.getElementById("WeekDay" + `${l}`).firstElementChild.className = "iconP"
-        document.getElementById("WeekDay" + `${l}`).lastElementChild.id = "dayText";
-    }
-    */
 }
 
 $(document).scroll(function(){
     $('.overlay').css({
         left: $(document).scrollLeft()
     });
+});
+
+$(document).scroll(function(){
+    if(window.pageYOffset > 200){
+        $('.overlay1').css({
+            top: -200+ $(document).scrollTop()
+        });
+    }
+    if ($(document).scrollTop() < 200){
+        $('.overlay1').css({
+            top: 0
+        });
+    }
 });
 
 genFields();

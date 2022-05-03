@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <script src="js.js" defer></script>
+    <script src="http://yandex.st/jquery/1.8.1/jquery.min.js"></script>
+    <script src="aaaaaaa.js" defer></script>
+    <title>Расписание</title>
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <script src="node_modules/@claviska/jquery-minicolors/jquery.minicolors.js"></script>
+    <link rel="stylesheet" href="node_modules/@claviska/jquery-minicolors/jquery.minicolors.css" />
+    <!--<input class="mini" type="minicolors" data-swatch-position="left" value="#75bd25" data-textfield="false" name="color" /> -->
+</head>
+<body>
+<div id="back">
+    <h1>Расписание</h1>
+    <div id="glass">
+        <table>
+            <tr>
+                <td>
+                    <table class="overlay">
+                        <tr>
+                            <th>
+                                <div id="semestr" onclick="changeSemestr()">
+                                    <p16>2 Семестр</p16>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div id="semestr2" onclick="copy()">
+                                    <p19>Скопировать</p19>
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay1" center>
+                                    <a class="iconP" onclick="button(this)" ></a>
+
+                                    <!-- onclick="this.className = (this.className == 'iconP' ? 'iconM' : 'iconP')"-->
+                                    <!-- style="margin-left: -56px;margin-top: 28%;margin-bottom: -3%;" -->
+                                    <dayText id="dayText" >
+                                        Понедельник
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+
+                                <div class="day" id="WeekDay2">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <!-- style="margin-left: -90px;margin-top: 9px;"-->
+                                    <dayText id="dayText" >
+                                        <!--  style="margin-left: 40px;"-->
+                                        Вторник
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay3">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <dayText id="dayText" >
+                                        Среда
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay4">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <dayText id="dayText" >
+                                        Четверг
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay5">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <dayText id="dayText" >
+                                        Пятница
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay6">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <dayText id="dayText" >
+                                        Суббота
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="day" id="WeekDay7">
+                                    <a class="iconP" onclick="button(this)"></a>
+                                    <dayText id="dayText" >
+                                        Воскресенье
+                                    </dayText>
+                                </div>
+
+                            </th>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="overlay1" style="margin-bottom: 32px">
+                        <tr>
+
+                            <th>
+                                <div class="numBlock" style="margin-left: 296px;">
+                                    <p17>1</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>2</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>3</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>4</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>5</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>6</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>7</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>8</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p17>9</p17>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>10</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>11</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>12</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>13</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>14</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>15</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>16</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>17</p18>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="numBlock">
+                                    <p18>18</p18>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+
+                            <th>
+                                <div class="dateBlock"  style="margin-left: 296px;">
+                                    <p20>07.02-13.02</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>14.02-20.02</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>21.02-27.02</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>28.02-06.03 </p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>07.03-13.03</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>14.03-20.03</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>21.03-27.03</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>28.02-03.04</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>04.04-10.04</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>11.04-17.04</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>18.04-24.04</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>25.04-01.05</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>02.05-08.05</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>09.05-15.05</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>16.05-22.05</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>23.05-29.05</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>30.05-05.06</p20>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="dateBlock">
+                                    <p20>06.06-12.06</p20>
+                                </div>
+                            </th>
+                        </tr>
+
+                    </table>
+
+                    <table id="dataArr" style="border-spacing: 6px 0px;">
+
+                    </table>
+
+                </td>
+            </tr>
+
+
+        </table>
+
+
+
+
+    </div>
+    <div id="overlayInput">
+        <table>
+            <a class="save" onclick="save()" ></a>
+            <a class="exit" onclick="save()" ></a>
+            <tr>
+                <td>
+                    <div style="width: 172px; height: 53px; margin-left: 44px; margin-top: 48px">
+                        <p3>Группа:</p3>
+                    </div>
+
+                </td>
+                <td>
+
+                    <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 59px">
+                        <input id="group" class="inputField" type="text" size="33" placeholder="19-ИТД">
+                        <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div style="width: 224px; height: 53px; margin-left: 44px; margin-top: 11px">
+                        <p3>Предмет:</p3>
+                    </div>
+                </td>
+                <td>
+                    <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 5px">
+                        <input id="subject" class="inputField" type="text" size="33" placeholder="АИС" >
+                        <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="width: 172px; height: 53px; margin-left: 44px; margin-top: 11px">
+                        <p3>Время:</p3>
+                    </div>
+                </td>
+                <td>
+                    <div style="width: 172px; height: 53px; margin-left: 70px; margin-top: 5px;">
+                        <input id="time" class="inputField" type="text" size="33" placeholder="8:00">
+                        <hr class="polosaZhizni" style="width: 259px; height: 0px; border: 2px solid #B9B9B9; margin-top: 0px">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <hr class="polosaZhizni" style="width: 597px; height: 0px; border: 2px solid #B9B9B9; margin-top: 36px">
+
+
+        <div id="rings">
+            <table>
+                <tr>
+                    <td>
+                        <div style=" padding-top: 6px;width: 339px; height: 31px; ">
+                            <p45>
+                                Изменить цвет ячейки:
+                            </p45>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="ball1" onclick="changeColor(this)">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div id="ball2" onclick="changeColor(this)">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div id="ball3"onclick="changeColor(this)">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div id="ball4">
+                            <label>
+                                <script src="node_modules/vanilla-picker/dist/vanilla-picker.js"></script>
+                                <div id="example" style="width: 43px;height: 43px;border-radius: 50%;"></div>
+
+                            </label>
+                        </div>
+
+                    </td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
