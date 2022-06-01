@@ -10,24 +10,11 @@
 
     <script src="node_modules/@claviska/jquery-minicolors/jquery.minicolors.js"></script>
     <link rel="stylesheet" href="node_modules/@claviska/jquery-minicolors/jquery.minicolors.css" />
+    <!--<input class="mini" type="minicolors" data-swatch-position="left" value="#75bd25" data-textfield="false" name="color" /> -->
 </head>
 <body>
     <div id="back">
         <h1>Расписание</h1>
-
-        <div id="newDataBlock" style="background-color: rgb(255, 255, 255);">
-            <div id="newTime">
-                8:00
-            </div>
-            <div id="newPolosa">
-
-            </div>
-            <div id="newGroup">
-                АИС 19-ИТД
-            </div>
-        </div>
-
-
         <div id="glass">
             <table>
                 <tr>
@@ -35,14 +22,14 @@
                         <table class="overlay">
                             <tr>
                                 <th>
-                                    <div id="semestr" onclick="changeSemestr()">
+                                    <div id="semestr">
                                         <p16>1 Семестр</p16>
                                     </div>
                                 </th>
                             </tr>
                             <tr>
                                 <th>
-                                    <div id="semestr2" onclick="copy()">
+                                    <div id="semestr2">
                                         <p19>Скопировать</p19>
                                     </div>
                                 </th>
@@ -134,7 +121,7 @@
                         </table>
                     </td>
                     <td>
-                        <table class="overlay1" style="margin-bottom: 32px">
+                        <table style="margin-bottom: 32px">
                             <tr>
 
                                 <th>
@@ -232,10 +219,7 @@
 
                                 <th>
                                     <div class="dateBlock"  style="margin-left: 296px;">
-                                        <input type="text" class="p20" PLACEHOLDER="Введите числа"
-                                               style="border-left-width: 0px;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;width: 173px;height: 53px;left: 360px;top: 301px;margin-left: 23px;font-family: 'Roboto', serif;font-style: normal;font-weight: 400;font-size: 28px;line-height: 18px;display: flex;align-items: center;text-align: center;color: #000000;"
-                                        >
-                                        <!-- <p20>07.02-13.02</p20> -->
+                                        <p20>07.02-13.02</p20>
                                     </div>
                                 </th>
                                 <th>
@@ -343,7 +327,6 @@
         </div>
         <div id="overlayInput">
             <table>
-                <a class="save" onclick="save()" ></a>
                 <a class="exit" onclick="save()" ></a>
                 <tr>
                     <td>
@@ -421,7 +404,7 @@
                         </td>
                         <td>
                             <div id="ball4">
-                                <label>
+                                <label  class="ebannayaXyinyaEbalEe">
                                     <script src="node_modules/vanilla-picker/dist/vanilla-picker.js"></script>
                                     <div id="example" style="width: 43px;height: 43px;border-radius: 50%;"></div>
 
